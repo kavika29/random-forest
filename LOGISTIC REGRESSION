@@ -1,0 +1,64 @@
+//////////////
+
+EXAMPLE CHATGPT PYTHON CODE FOR RANDOMFOREST ALGORITHM
+
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error
+
+# Load data into a Pandas dataframe
+traffic_data = pd.read_csv('traffic_data.csv')
+
+# Split data into training and testing sets
+X = traffic_data.drop('traffic_volume', axis=1)
+y = traffic_data['traffic_volume']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train random forest model
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions on test set
+y_pred = model.predict(X_test)
+
+# Evaluate model performance
+mae = mean_absolute_error(y_test, y_pred)
+print('Mean Absolute Error:', mae)
+In this example code, we first load the traffic data into a Pandas dataframe. We then split the data into training and testing sets using the train_test_split() function from scikit-learn. We create a RandomForestRegressor model with 100 estimators and train it on the training set. We then make predictions on the test set using the predict() method and evaluate the model's performance using the mean absolute error metric.
+
+Note that you'll need to customize this code for your specific data and requirements. You may also need to preprocess your data (e.g., one-hot encoding categorical features, scaling numeric features) before feeding it to the model.
+
+//////////
+
+
+
+
+/////////////////// EXAMPLE OF CHATGPT LOGISTIC REGRESSION ALGORITHM PYTHON CODE
+
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load data into a Pandas dataframe
+traffic_data = pd.read_csv('traffic_data.csv')
+
+# Split data into training and testing sets
+X = traffic_data.drop('traffic_volume', axis=1)
+y = traffic_data['traffic_volume']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train logistic regression model
+model = LogisticRegression(random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions on test set
+y_pred = model.predict(X_test)
+
+# Evaluate model performance
+accuracy = accuracy_score(y_test, y_pred)
+print('Accuracy:', accuracy)
+
+
+////////////
